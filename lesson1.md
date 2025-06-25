@@ -23,7 +23,7 @@
    ```
 3. Use of Spacing
 
-   ```
+   ```java
    System.out.println("Hello world!")
    System.out.println(   "hello world!") // the same
    System.out.   println("hello world!) // error
@@ -151,7 +151,7 @@ number > 5 && number < 10
 !(number > 10) // you have to use a pair of parathenses to enclose the expression
 ```
 
-# lesson 1.4 - Text Input and Output
+## lesson 1.4 - Text Input and Output
 
 1. Printing text
 
@@ -234,4 +234,4 @@ System.out.println("Hello, " + name + "!");
 
 ![1750849621724](image/lesson1/1750849621724.png)
 
-> Warning: it reads what the user has typed up until an **Enter key** or when there is a **space** in the text, so **the space will not be stored in the variable. **The text after the space will then get picked up by another next() command in the program, if there is one.**
+> Warning: it reads what the user has typed up until an **Enter key** or when there is a **space** in the text, so the space will not be stored in the variable. **The text after the space will then get picked up by another next() command in the program, if there is one.**
