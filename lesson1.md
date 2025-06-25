@@ -1,6 +1,6 @@
 # Lesson 1 - Introduction to Java
 
-## Lesson 1.1 - Using Java and ~BlueJ~
+## lesson 1.1 - Using Java and ~BlueJ~
 
 > why not VSCode?
 
@@ -59,28 +59,28 @@
 
 ## lesson 1.3 Variables and Operators
 
-1.How to use variables
+1. How to use variables
 
-```java
-// Declare a variable before using it
-int luckynumber;
-/* This line of code, telling Java that you are going to use a variable, is called variable declaration. */
-// Then you can use it to store number
-luckynumber = 5;
-```
+   ```java
+   // Declare a variable before using it
+   int luckynumber;
+   /* This line of code, telling Java that you are going to use a variable, is called variable declaration. */
+   // Then you can use it to store number
+   luckynumber = 5;
+   ```
 
-| Data type name    | Description                                                       |
-| ----------------- | ----------------------------------------------------------------- |
-| **char**    | A single character                                                |
-| **int**     | An integer number                                                 |
-| **float**   | A floating point number                                           |
+| Data type name    |                            Description                            |
+| ----------------- | :---------------------------------------------------------------: |
+| **char**    |                        A single character                        |
+| **int**     |                         An integer number                         |
+| **float**   |                      A floating point number                      |
 | **double**  | A floating point number with a doubly higher precision thannfloat |
-| **boolean** | A boolean value, meaning either**true** or **false**  |
-| **String**  | A string value                                                    |
+| **boolean** | A boolean value, meaning either**true** or **false** |
+| **String**  |                          A string value                          |
 
 > Warning: A variable name must start with a **letter, a dollar sign or an underscore** (i.e., _ ), followed by any combination of **letters, digits, dollar signs or underscores.**
 
-3. What will happen if we create an integer variable and then put 1.2 into the variable? Let's see with the following code:
+    What will happen if we create an integer variable and then put 1.2 into the variable? Let's see with the following code:
 
 ```java
    int luckynumber;
@@ -88,7 +88,7 @@ luckynumber = 5;
    luckynumber = (int) (1.2); // correct!
 ```
 
-    3. Arithmetic Operators
+2. Arithmetic Operators
 
 | Operator | Description             |
 | -------- | ----------------------- |
@@ -104,7 +104,7 @@ luckynumber = 5;
 greeting = "Good" + " " + "morning" + "!";
 ```
 
-4. Integer Division
+3. Integer Division
 
 ```java
 int luckynumber;
@@ -115,7 +115,7 @@ real_one = 5.0/2;
 real_one = (double)5/2; // those three are just what you are looking for
 ```
 
-5. Comparison Operators
+4. Comparison Operators
 
 | Operator     | Description              |
 | ------------ | ------------------------ |
@@ -130,11 +130,12 @@ real_one = (double)5/2; // those three are just what you are looking for
 a == b // If a and b are equal, the above expression will give a value of true. Otherwise, it will give a value of false.
 ```
 
-6. The Assignment Operator
+5. The Assignment Operator
+
    ```java
    luckynumber = 5;
    ```
-7. Conditional Operators
+6. Conditional Operators
 
 | **Operator** | Description     |
 | ------------------ | --------------- |
