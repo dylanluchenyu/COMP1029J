@@ -1,4 +1,4 @@
-# Lesson 3 - Essential Programming in Java
+# Lesson 2 - Essential Programming in Java
 
 ## lesson 2.1 - Using Strings
 
@@ -106,8 +106,8 @@ Another useful command that you can use for a string is the **.charAt()** comman
 String name = "Lucky";
 ```
 
-| Position       | 0 | 1 | 2 | 3 | 4 |
-| -------------- | - | - | - | - | - |
+| Position            | 0 | 1 | 2 | 3 | 4 |
+| ------------------- | - | - | - | - | - |
 | **Character** | L | u | c | k | y |
 
 ```java
@@ -258,9 +258,7 @@ switch (number) {
 Similar to other programming languages you can write loops in Java. Looping is an important structure in programming. Java allows you to use three kinds of loops:
 
 * For loops
-
 * While loops
-
 * Do while loops
 
 2.Using for loops
@@ -367,4 +365,4 @@ while (i < 10) {
 }
 ```
 
->  the answer is the third one, since the first two print "012345678910", while the thrid one print "0123456789"
+> the answer is the third one, since the first two print "012345678910", while the thrid one print "0123456789"

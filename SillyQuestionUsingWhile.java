@@ -17,14 +17,15 @@ public class SillyQuestionUsingWhile
 
         // Ask for the answer
         String answer;
-        Scanner scanner = new Scanner(System.in);
-        answer = scanner.next();
-
-        // Ask the question if the answer is not 'Y'
-        while (!answer.equals("Y")) {
-            System.out.println("Can't hear you. Please answer again.");
-            System.out.print("Answer (Y/N): ");
+        try (Scanner scanner = new Scanner(System.in)) {
             answer = scanner.next();
+
+            // Ask the question if the answer is not 'Y'
+            while (!answer.equals("Y")) {
+                System.out.println("Can't hear you. Please answer again.");
+                System.out.print("Answer (Y/N): ");
+                answer = scanner.next();
+            }
         }
 
         System.out.println("That's right!");
