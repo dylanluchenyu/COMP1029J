@@ -90,15 +90,15 @@
 
 2. Arithmetic Operators
 
-| Operator | Description             |
-| -------- | ----------------------- |
-| +        | Addition                |
-| -        | Subtraction             |
-| *        | Multiplication          |
-| /        | Division                |
-| %        | Remainder               |
-| ++       | Increasing a value by 1 |
-| --       | Decreasing a value by 1 |
+| Operator |       Description       |
+| :------: | :---------------------: |
+|    +    |        Addition        |
+|    -    |       Subtraction       |
+|    *    |     Multiplication     |
+|    /    |        Division        |
+|    %    |        Remainder        |
+|    ++    | Increasing a value by 1 |
+|    --    | Decreasing a value by 1 |
 
 ```java
 greeting = "Good" + " " + "morning" + "!";
@@ -117,13 +117,13 @@ real_one = (double)5/2; // those three are just what you are looking for
 
 4. Comparison Operators
 
-| Operator     | Description              |
-| ------------ | ------------------------ |
-| **==** | Equal to                 |
-| **!=** | Not equal to             |
-| **>**  | Greater than             |
+|   Operator   |       Description       |
+| :----------: | :----------------------: |
+| **==** |         Equal to         |
+| **!=** |       Not equal to       |
+| **>** |       Greater than       |
 | **>=** | Greater than or equal to |
-| **<**  | Smaller than             |
+| **<** |       Smaller than       |
 | **<=** | Smaller than or equal to |
 
 ```java
@@ -137,11 +137,11 @@ a == b // If a and b are equal, the above expression will give a value of true. 
    ```
 6. Conditional Operators
 
-| **Operator** | Description     |
-| ------------------ | --------------- |
-| **&&**       | Conditional AND |
-| \|\|               | Conditional OR  |
-| **!**        | Negation        |
+| **Operator** |   Description   |
+| :----------------: | :-------------: |
+|    **&&**    | Conditional AND |
+|        \|\|        | Conditional OR |
+|    **!**    |    Negation    |
 
 ```java
 number > 5 && number < 10
