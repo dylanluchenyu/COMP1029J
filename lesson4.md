@@ -391,7 +391,7 @@ public class ReadTextFile
     {
         // Get the path of the text file
         Path path = Paths.get("old_macdonald.txt");
-      
+    
         // Read the file if it is readable
         if (Files.isReadable(path)) {
             try {
@@ -446,4 +446,4 @@ public void addNumber() {
 }
 ```
 
-As you can see, we need to enclose the **newBufferedWriter** method with a try...catch block because of the exception potentially thrown by the method. You see there is a parameter **StandardOpenOption.APPEND.** This indicate we get the **BUfferWriter** in the append mode, and we are going to add new content at the end of the content in the current file. As **StandardOpenOption** is a class in the **java.nio.file** package you need to import the class before using the parameter.
+As you can see, we need to enclose the **newBufferedWriter** method with a try...catch block because of the exception potentially thrown by the method. You see there is a parameter **StandardOpenOption.APPEND.** This indicate we get the **BUfferWriter** in the append mode, and we are going to add new content at the end of the content in the current file.(If we do not use append mode the program will erase the content of the text file before adding new content again.) As **StandardOpenOption** is a class in the **java.nio.file** package you need to import the class before using the parameter.
