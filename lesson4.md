@@ -265,7 +265,7 @@ When the program reaches this try...catch block, first, the code inside the try 
 
 > In Java, catch(IOException e) means that e is a variable representing the caught exception object.
 
-## lesson4.3 - File Input and Output
+## lesson 4.3 - File Input and Output
 
 1.Using a Path object
 
@@ -391,7 +391,7 @@ public class ReadTextFile
     {
         // Get the path of the text file
         Path path = Paths.get("old_macdonald.txt");
-    
+  
         // Read the file if it is readable
         if (Files.isReadable(path)) {
             try {
@@ -447,3 +447,64 @@ public void addNumber() {
 ```
 
 As you can see, we need to enclose the **newBufferedWriter** method with a try...catch block because of the exception potentially thrown by the method. You see there is a parameter **StandardOpenOption.APPEND.** This indicate we get the **BUfferWriter** in the append mode, and we are going to add new content at the end of the content in the current file.(If we do not use append mode the program will erase the content of the text file before adding new content again.) As **StandardOpenOption** is a class in the **java.nio.file** package you need to import the class before using the parameter.
+
+## lesson 4.4 - Recursion
+
+1.Intro.
+
+Recursion is a programming technique to solve recursive problems. It typically involves the use of a *recurisve method* in Java (or called a recursive function in general) . **A recurive method is a method which calls itself.** Let's make a Java program to calculate factorial:
+
+```java
+// Yhis method calculates the factorial recursively
+public static int factorial(int n){
+    return n* factorial(n-1);
+}
+```
+
+The above method seems to work well. However, if you follow closely of the execution of the method, you can actually see that the factorial method repeatedly calls itself and will never stop! So we need to tell it when to stop, and that why we will add a base case for the **factorial** method.
+
+```java
+// This method calculates the factorial recursively
+public static int factorial(int n) {
+    if (n == 1)
+        return 1;
+    else
+        return n * factorial(n - 1);
+}
+```
+
+Now it just works!
+
+2.Using Recursion on Strings
+
+In this part of lesson, we will try to figure out how to find the reverse of a string using recursion (instead of using for loops) . First we need to know **substring** method. It allows you to get part of a string.
+
+```java
+String greeting = "How are you?";
+System.out.println(greeting.substring(0,3));
+```
+
+In the above code, the first parameter is 0. That means the part of the string we want to get will start from the first character of the string,i.e. H. Thes second parameter of the method is 3, which means we want to end at the fourth character but not included. So it will give you "How".
+
+> if you want to, you can omit the second parameter and the **substring** method will return the part of string up to the end of the string.
+
+Now we are going to use it in our recursive method **reverse**. Here is the code of the method:
+
+```java
+public static String reverse(String input) {
+    if (input.length() == 1)
+        return input;
+    else
+        return reverse(input.substring(1)) + input.charAt(0);
+}
+```
+
+Let's give a string "Hello" ot the reverse method.
+
+**reverse("Hello")**
+= **reverse("ello")** + **"H"**
+= **reverse("llo")** + **"e"** + **"H"**
+= **reverse("lo")** + **"l"** + **"e"** + **"H"**
+= **reverse("o")** + **"l"** + **"l"** + **"e"** + **"H"**
+= **"o"** + **"l"** + **"l"** + **"e"** + **"H"** *(**reverse("o")** returns **"o"**)
+= **"olleH"**
