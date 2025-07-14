@@ -257,4 +257,230 @@ Therefore, the above code turns the rock in a random direction.
 
 ![1752479633763](image/lesson5/1752479633763.png)
 
-3.Automatically
+3.Automatically Removing the Rocks
+
+The rocks stay there after hitting the border of the world because the **World** class, by default, does not allow any actor to move outside of the world, so you will find that the rocks stay on the border of the world, like the display shown below:
+
+![1752479965917](image/lesson5/1752479965917.png)
+
+Because of this, we need to slightly amend the **Space** class. Here is the constructor of the **Space** class:
+
+```java
+public Space()
+{
+    super(600, 400, 1);
+
+    Spaceship spaceship = new Spaceship();
+    addObject(spaceship, 300, 200);
+}
+```
+
+We need to modify this line of code:
+
+```java
+super(600, 400, 1);
+```
+
+into this line of code:
+
+```java
+super(600, 400, 1, false);
+```
+
+The added parameter means that the world will now let every actor move out of the world without staying on the border.
+
+If we do this we will introduce a new problem. The problem is that when a rock moves out of the display of the world it is not part of the game and therefore it should be removed. Greenfoot does not automatically do this. We need to write our own code to remove any actor which has moved out of the world. To do this, we simply add some code in the **act** method, like this:
+
+```java
+public void act()
+{
+    // Move the rock in a unit of time
+    move(4);
+
+    // Remove the rock if it is out of the world
+    World world = getWorld();
+    if (getX() < 0 || getX() >= world.getWidth() ||
+        getY() < 0 || getY() >= world.getHeight()) {
+        world.removeObject(this);
+    }
+}
+```
+
+The keyword **this** here means the rock object itself. In general, whenever you want to refer to the instance of a class inside the class method, you use the keyword  **this**.
+
+4.Adding Rocks to the World Randomly
+
+Up to now, we have to manually add our rocks to the world. Similar to what we have done for the spaceship, we should add the rocks to the game automatically. However, this time, we will not add our rocks from the constructor of the **Space** class. This is because we need to add rocks to the game continuously, instead of just at the start of the game.
+
+To do that, we will make use of the **act** method of the **Space** class:
+
+```java
+public void act()
+{
+    // Add a rock anywhere along the border of the game
+    Rock rock = new Rock();
+    switch (Greenfoot.getRandomNumber(4)) {
+        case 0:
+            // Add the rock on the top border
+            addObject(rock, Greenfoot.getRandomNumber(getWidth()), 0);
+            break;
+        case 1:
+            // Add the rock on the bottom border
+            addObject(rock, Greenfoot.getRandomNumber(getWidth()), getHeight() - 1);
+            break;
+        case 2:
+            // Add the rock on the left border
+            addObject(rock, 0, Greenfoot.getRandomNumber(getHeight()));
+            break;
+        case 3:
+            // Add the rock on the right border
+            addObject(rock, getWidth() - 1, Greenfoot.getRandomNumber(getHeight()));
+            break;
+    }
+}
+```
+
+![1752481129792](image/lesson5/1752481129792.png)
+
+To control the amount of rocks added to the game we will choose the timing carefully. The way that we do it is to add a rock based on a certain probability. Let's say we will add a rock in one unit of time with a probability of 0.1.
+
+Here is what we do in the **act** method:
+
+```java
+public void act()
+{
+    // Add a rock anywhere along the border of the game
+    // with a probability of 0.1
+    if (Greenfoot.getRandomNumber(100) < 10) {
+        ...add a rock on the border of the game...
+    }
+}
+```
+
+## lesson 5.4 - Finishing the Game
+
+1.Collision between the Spaceship and a Rock
+
+If any of the rocks is too close to the spaceship, the spaceship will be destroyed by the rock and the game will be over.
+
+![1752482458324](image/lesson5/1752482458324.png)
+
+In this final part of the lesson, we will finish the game by checking this game over situation. Since the spaceship and the rocks are moving continuously we need to check for this situation each time they have been moved.
+
+A useful method from the **Actor** class we can use here is called  **getObjectsInRange**. The method finds the objects that collide with the current actor within a given distance.
+
+> The first parameter is the distance between the current actor and the objects that you want to search for. The second parameter is the class of objects that you are looking for. The method returns a **java.util.List** object, which stores the list of objects that is the given distance or smaller away from the actor.
+
+Here is how we use the method in the **Spaceship** class:
+
+```java
+if (!getObjectsInRange(60, Rock.class).isEmpty()) {
+    ...at least one rock collides with the spaceship...
+}
+```
+
+We will give a brief description of the list object, i.e. a **java.util.List** object, in the next part of the lesson.
+
+2.Using the List Object
+
+To use the **List** class you need to import the class using this line of code at the top of your file:
+
+```java
+import java.util.List;
+```
+
+Let's briefly look at what we can do with the list.
+
+The first thing is the **isEmpty** method, which you have seen already. You can use this method to check if the list is empty, like this:
+
+```java
+List list = getObjectsInRange(60, Rock.class);
+if (list.isEmpty()) {
+   ...the list is empty, do something...
+}
+```
+
+You can also use the **size** method to get the exact amount of items in the list. For example, you can use **list.size()** to get back how many rocks are colliding with the spaceship now.
+
+If you know that the list is not empty, you can get back the first rock from the list like this:
+
+```java
+Rock rock = (Rock) list.get(0);
+```
+
+This method gives the list of a class of objects currently in the world in the scenario. For example, you can use the following code inside the spaceship to get **all** rocks currently in the game:
+
+```java
+List list = getWorld().getObjects(Rock.class);
+```
+
+3.Stopping the Game When the Game is over
+
+You know how to stop the scenario by pressing the *Pause* button. However, can we do that in code? What we need to do in the **act** method of the **Spaceship** class is to stop the game when a rock is too close to the spaceship. The code is shown below:
+
+```java
+public void act()
+{
+    // Rotate the spaceship based on the key pressed
+    if (Greenfoot.isKeyDown("left")) {
+        turn(-3);
+    }
+    else if (Greenfoot.isKeyDown("right")) {
+        turn(3);
+    }
+
+    // Move the spaceship based on the key pressed
+    if (Greenfoot.isKeyDown("up")) {
+        move(4);
+    }
+
+    // Check if a rock hits the spaceship
+    if (!getObjectsInRange(60, Rock.class).isEmpty()) {
+        // Stop the game
+        Greenfoot.stop();
+    }
+}
+```
+
+4.Showing an Explosion
+
+We want to show the explosion of the spaceship by adding an explosion image.
+
+The first step is to create an actor using the explosion image as shown below:
+
+![1752484202634](image/lesson5/1752484202634.png)
+
+We will use the following settings to create the actor:
+
+![1752483744695](image/lesson5/1752483744695.png)
+
+Note that we use our own image this time. Here is the code we used in the previous example to stop the game when it is over:
+
+```java
+// Check if a rock hits the spaceship
+if (!getObjectsInRange(60, Rock.class).isEmpty()) {
+    // Stop the game
+    Greenfoot.stop();
+}
+```
+
+Let's insert some explosion code before we stop the game. First, we will show the explosion, i.e. an explosion actor, at the same location of the spaceship, using the code:
+
+```java
+Explosion explosion = new Explosion();
+getWorld().addObject(explosion, getX(), getY());
+```
+
+By doing this, the explosion will now be displayed above the spaceship, like this:
+
+![1752483925065](image/lesson5/1752483925065.png)
+
+Since the spaceship has been exploded we will remove the spaceship altogether before we stop the game. So let's add one more line of code to remove the spaceship from the world. Here is the line of code:
+
+```java
+getWorld().removeObject(this);
+```
+
+Here is an example of our improved game over screen:
+
+![1752483998810](image/lesson5/1752483998810.png)
