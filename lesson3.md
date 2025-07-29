@@ -21,7 +21,7 @@ String name = scanner.next();
 System.out.println(name.length());
 ```
 
-`.next()` and `.length()`  are two method from a scanner and a string respectively. We avoided using the word '*object*' previously because we have not yet talked about it. After this lesson you will have a better idea of objects. However, some of the data tupes like `int`, `char` and `double` are not objects. They contains only a single value. So that why we can use `==` to compare the values of these data types directly, and we cannot use `==` ( we use `.equals()` instead ) to compare two strings.
+`.next()` and `.length()`  are two methods from a scanner and a string respectively. We avoided using the word '*object*' previously because we have not yet talked about it. After this lesson you will have a better idea of objects. However, some of the data types like `int`, `char` and `double` are not objects. They contains only a single value. So that why we can use `==` to compare the values of these data types directly, and we cannot use `==` ( we use `.equals()` instead ) to compare two strings.
 
 3.Using a Class
 
@@ -202,8 +202,8 @@ int[][] msgicsquare = { { 4, 9, 2}, {3, 5, 7}, {8, 1, 6} };
 
 In the above line of code we declare and initialize an 2D array. It is two dimensional because we use one index to get the items out of the *inner* array. If we think each inner *array* as a row and the *outer* array, the `magicsquare` variable will give you this structure:
 
-| 4      | 9      | 2      |
-| ------ | ------ | ------ |
+| 4           | 9           | 2           |
+| ----------- | ----------- | ----------- |
 | **3** | **5** | **7** |
 | **8** | **1** | **6** |
 

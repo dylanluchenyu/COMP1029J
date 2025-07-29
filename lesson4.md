@@ -6,7 +6,7 @@ In this lesson, we will very briefly discuss these two features of object-orient
 
 1.Inheritance
 
-The idea of inheritance is to create a ***base class*** which contains things in common, and then create ***subclasses*** which extend the base class. These subclasses (off-springs) share the properties and behaviors of the base class but also hace things which are different from each other.
+The idea of inheritance is to create a ***base class*** which contains things in common, and then create ***subclasses*** which extend the base class. These subclasses (off-springs) share the properties and behaviors of the base class but also have things which are different from each other.
 
 ```java
 /**

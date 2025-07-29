@@ -98,7 +98,7 @@ name = scanner.next();
 System.out.println("Your name is " + name.length() + " characters long.");
 ```
 
-6.lookong into the content of a string
+6.looking into the content of a string
 
 Another useful command that you can use for a string is the **.charAt()** command. This command allows you to get a character from a string at a particular position.
 

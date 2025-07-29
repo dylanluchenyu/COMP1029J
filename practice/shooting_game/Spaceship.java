@@ -27,10 +27,16 @@ public class Spaceship extends Actor
          */
         
         // If the player presses the spacebar key
-        //    if there is currently no bullet in the game
-        //        add a bullet
+        if(Greenfoot.isKeyDown("space")){
+            if(getWorld().getObjects(Bullet.class).isEmpty()){
+                // if there is currently no bullet in the game
+                // add a bullet
+                Bullet bullet = new Bullet();
+                bullet.setRotation(getRotation());
+                getWorld().addObject(bullet,getX(),getY());
+            }
+        }
 
-    
         // Check if a rock hits the spaceship
         if (!getObjectsInRange(60, Rock.class).isEmpty()) {
             // Add an explosion at the spaceship position

@@ -70,13 +70,13 @@
    ```
 
 | Data type name    |                            Description                            |
-| ----------------- | :---------------------------------------------------------------: |
-| **char**    |                        A single character                        |
+| ----------------- | :----------------------------------------------------------------: |
+| **char**    |                         A single character                         |
 | **int**     |                         An integer number                         |
 | **float**   |                      A floating point number                      |
-| **double**  | A floating point number with a doubly higher precision thannfloat |
-| **boolean** | A boolean value, meaning either**true** or **false** |
-| **String**  |                          A string value                          |
+| **double**  | A floating point number with a doubly higher precision than float |
+| **boolean** | A boolean value, meaning either **true** or **false** |
+| **String**  |                           A string value                           |
 
 > Warning: A variable name must start with a **letter, a dollar sign or an underscore** (i.e., _ ), followed by any combination of **letters, digits, dollar signs or underscores.**
 
